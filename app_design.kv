@@ -1,0 +1,114 @@
+MDScreenManager:
+    Screen:
+
+        MDBoxLayout:
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            padding: 25
+            spacing: 15
+            orientation: "vertical"
+
+            MDTopAppBar:
+                title: "MateUI"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                elevation: 3
+                right_action_items: [["dots-vertical", lambda x: app.callback(x)]]
+
+            Widget:
+                size_hint_y: 0.01
+
+            MDCard:
+                id: root_card
+                size_hint: 0.8, 0.8
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                elevation: 3
+                padding: 20
+                spacing: 12
+                orientation: "vertical"
+
+                Widget:
+                    size_hint_y: 0.3
+
+                Image:
+                    source: "images/mate_icon.png"
+
+                MDLabel:
+                    id: mate_label
+                    text: "Hi, I am your device mate."
+                    theme_text_color: "Secondary"
+                    font_size: 15
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    pos_hint: {"center_y": 0.8} 
+
+                Widget:
+                    size_hint_y: 0.9
+
+                MDSeparator:
+                    orientation: "horizontal"
+                    height: "2dp"
+                    size_hint_x: 0.7
+                    pos_hint: {"center_x": 0.5}
+
+                MDRaisedButton:
+                    id: login
+                    text: "Login"
+                    text_color: "white"
+                    size_hint_y: 0.3
+                    size_hint_x: 0.7
+                    font_size: 18
+                    pos_hint: {"center_x": 0.5}
+                    padding_y: 1
+                    spacing: 1
+
+                MDSeparator:
+                    orientation: "horizontal"
+                    height: "2dp"
+                    size_hint_x: 0.7
+                    pos_hint: {"center_x": 0.5}
+
+                MDRaisedButton:
+                    id: config
+                    text: "Load configuration"
+                    text_color: "white"
+                    size_hint_y: 0.3
+                    size_hint_x: 0.7
+                    font_size: 18
+                    pos_hint: {"center_x": 0.5}
+
+                MDSeparator:
+                    orientation: "horizontal"
+                    height: "2dp"
+                    size_hint_x: 0.7
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextButton:
+                    id: user
+                    text: "Create new user"
+                    theme_text_color: "Custom"
+                    text_color: app.theme_cls.primary_color 
+                    size_hint_x: 0.85
+                    pos_hint_y: 0.5
+                    halign: "right"
+                    font_size: 15
+
+                Widget:
+                    size_hint_y: 0.9
+
+                MDLabel:
+                    id: notice
+                    text: "For internal use only!"
+                    theme_text_color: "Secondary"
+                    font_size: 12
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            Widget:
+                size_hint_y: 0.01
+
+            MDTopAppBar:
+                position: "bottom"
+                elevation: 3
+                right_action_items: [["content-save", lambda x: app.save()], ["exit-to-app", lambda x: app.exit()]]
